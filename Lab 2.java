@@ -26,7 +26,10 @@ public class Test2 {
         int i, j;
         for (j = 0; j < array[0].length; j++) {
             i = 0;
-            while (i < array.length && array[i][j] > 0) {
+            while (i < array.length) {
+                if (array[i][j] <= 0) {
+                    break;
+                }
                 i++;
             }
             if (i == array.length) {
@@ -43,11 +46,11 @@ public class Test2 {
     public static int[][] insertOnesColumn(int array[][], int column) {
         int i, j;
 		int newLine[];
-        for (i = 0; i < array.length; i++) {
-          	newLine = new int[array[i].length + 1];
-            for (j = 0; j < column; j++) {
-                newLine[j] = array[i][j];
-            }
+    for (i = 0; i < array.length; i++) {
+      	newLine = new int[array[i].length + 1];
+        for (j = 0; j < column; j++) {
+            newLine[j] = array[i][j];
+        }
             newLine[column] = 1;
             for (j = column; j < array[i].length; j++) {
               	newLine[j + 1] = array[i][j];
